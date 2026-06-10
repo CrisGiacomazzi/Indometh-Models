@@ -31,7 +31,7 @@ Figure 1. Image done by Gemini AI to explain the First-order kinetic equation an
 
 # Results
 
-## Model 1
+## Model 1 (1-Compartment) 
 
 <img width="966" height="464" alt="Screenshot 2026-06-10 at 7 33 27 PM" src="https://github.com/user-attachments/assets/a55e0fbf-dd18-41e8-95c6-b7cc87a6f614" />
 
@@ -42,6 +42,9 @@ Figure 1. Image done by Gemini AI to explain the First-order kinetic equation an
 | **Acceptable (10-20% error)** | 9 (13.64%) | |
 | **Marginal (20-30% error)** | 1 (1.52%) | |
 | **Inaccurate (>30% error)** | 38 (57.58%) | |
+
+**Plot 1-Compartment model**
+<img width="992" height="521" alt="Screenshot 2026-06-10 at 7 36 07 PM" src="https://github.com/user-attachments/assets/41ccbc13-813b-4641-8566-23d3f5a55f2b" />
 
 
 
