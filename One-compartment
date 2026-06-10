@@ -1,0 +1,126 @@
+########################### NONLINEAR MIXED MODELS (NLME) ######################
+## As seen in PK, the relation is not linear between drug concentration and time.
+## Uses the raw data and fits actual curved biological equations.
+
+
+# 1) Load the dataset into your environment----
+data("Indometh")
+
+# 2) Load libraries----
+library(nlme)
+library(ggplot2)
+
+
+# 3) Build the model----
+
+## Select Dose----
+Indometh$dose_mg <- 25
+
+## Test 1 - Non-linear mixed effect modeling using the First Order Conditional Estimation (FOCE)----
+### One-compartment intravenous (IV) bolus pharmacokinetics equation
+pk_formula <- conc ~ (dose_mg / V) * exp(-(CL / V) * time)
+
+## Model----
+nlme_model <- nlme(
+  model = pk_formula,
+  data = Indometh,
+  fixed = CL + V ~ 1,            # Population average baseline 
+  random = CL + V ~ 1 | Subject, # Individual. Unique tweak to CL and V for each Subject. (|) = "grouped by.
+  start = c(CL = 40, V = 10)     # Biological baseline. Trial and error.
+)
+# CL = 12.40
+# V = 9.0
+
+## Model Quality metrics----
+summary(nlme_model)
+# a) AIC, BIC, LogLik Values used to comparison between the models
+
+# b) Random effects & Residuals (Variance quality) = [grey lines] [black dots]
+    # The library printed as StdDev (SD)
+  # CL StdDev(2.31L/h) =   inter-individual variability (omega).
+    # This is the spread of clearance rates between individual patients around the population average of 12.40. 
+  # V StdDev (1.40L) =  This is the spread of individual tissue volumes around the average of 9.02.
+  # Result: patient clearance typically fluctuates by +/-2.31\L/hr around the 12.40 baseline.
+
+# Residual StdDev(0.138) = sigma error. Unexplained variance. 
+  #In a good model, the residuals (errors) should be normally distributed around zero.
+  #the distance from the black dots to the grey lines. Smaller, better. 
+
+# c) Fixed Effects (Population Quality) = [red line]. 
+  # CL = The body completely clears the drug from 12.40L/h (AVG).
+  # V = The average theoretical space the drug occupies in the body.
+  # p-value<0.01 = confidence in the values
+  # Correlation CL&V = 0.138 
+
+# d) Standardized Within-Group Residuals:
+  # the Min and Max should balance each other out (e.g., -2 and +2): [-2.40872223 and 1.91930614] - not good.***
+
+## Plot the model----
+# Generating Predictions for Plotting
+# Individual predictions (Population trend + Subject variations)
+Indometh$pred_individual <- predict(nlme_model)
+# Population-only predictions (The average fixed-effect curve)
+Indometh$pred_population <- predict(nlme_model, level = 0)
+
+# Plot the True Nonlinear Mixed Model Fit
+p <- ggplot(data = Indometh, aes(x = time, y = conc)) +
+  # Actual blood sample measurements
+  geom_point(color = "black", size = 1.5) +
+  # Model-predicted individual curves (Random Effects)
+  geom_line(aes(y = pred_individual, group = Subject), color = "grey80") +
+  # Model-predicted population curve (Fixed Effect)
+  geom_line(aes(y = pred_population), color = "red", linewidth = 1) +
+  # Aesthetics
+  theme_classic() +
+  labs(
+    title = "Indometh - Population Pharmacokinetics",
+    subtitle = "One-Compartment IV Bolus Model via nlme",
+    x = "Time (h)", 
+    y = "Concentration (mg/L)"
+  ) +
+  theme(
+    plot.title = element_text(face = "bold", size = 12),
+    plot.subtitle = element_text(size = 10, color = "grey40")
+  )
+#Visualization
+print(p)
+
+### Evaluating the model----
+
+# Confusion Matrix
+  # Calculate the absolute percentage error for each prediction
+Indometh$percent_error <- abs((Indometh$conc - Indometh$pred_individual) / Indometh$conc) * 100
+
+  # Define clinical "correctness" tiers
+Indometh$Accuracy_Tier <- cut(
+  Indometh$percent_error,
+  breaks = c(0, 10, 20, 30, Inf),
+  labels = c("Highly Accurate (<10% error)", 
+             "Acceptable (10-20% error)", 
+             "Marginal (20-30% error)", 
+             "Inaccurate (>30% error)")
+)
+
+  # Create the "Count" Matrix (Table)
+accuracy_matrix <- table(Indometh$Accuracy_Tier)
+
+  # Convert to percentages
+accuracy_percentage <- prop.table(accuracy_matrix) * 100
+
+# Print the results
+print("Number of Predictions per Tier:")
+print(accuracy_matrix)
+
+print("Percentage of Predictions per Tier:")
+print(round(accuracy_percentage, 2))
+
+# Visualization
+ggplot(Indometh, aes(x = conc, y = pred_individual)) +
+  geom_point(aes(color = Accuracy_Tier), size = 2) +
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed", color = "orange") + # Perfect agreement line
+  theme_classic() +
+  labs(
+    title = "Model Accuracy Matrix (Observed vs. Predicted)",
+    x = "Actual Observed Concentration (mg/L)",
+    y = "Model Predicted Concentration (mg/L)"
+  )
