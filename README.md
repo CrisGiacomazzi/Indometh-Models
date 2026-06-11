@@ -108,6 +108,8 @@ Figure 2. Image done by Gemini AI to explain the system of linear differential e
 <img width="992" height="521" alt="Screenshot 2026-06-10 at 7 36 07 PM" src="https://github.com/user-attachments/assets/41ccbc13-813b-4641-8566-23d3f5a55f2b" />
 
 **Plot 2-Compartment model**
+<img width="2232" height="1418" alt="image" src="https://github.com/user-attachments/assets/b3935b67-a8cc-4e4b-9eef-a3f41b9f8455" />
+
 
 
 ### Metrics
