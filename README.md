@@ -7,7 +7,10 @@ One-compartment model is the conceptual foundation of PK. It introduces the core
 The objective of this project is to perform a comparative analysis of single-compartment and two-compartment pharmacokinetic models (Pinheiro, 2026). By evaluating key performance metrics, this study aims to determine the most mathematically robust and physiologically adequate model for Indometh.
 
 # Development
-The function nlme() in the library(nlme)performs nonlinear regression on plasma concentration versus time to estimate the elimination rate constant (k_el), elimination half-life (t1/2), initial concentration (C0), apparent volume of distribution (Vd), and clearance (CL) to calculate the population-level averages (fixed effects) and individual-level deviations (random effects). Due to the sample size and data density limitations inherent to the Indometh dataset, a parsimonious modeling strategy was adopted. The structural model was restricted to minimal essential parameters to ensure numerical stability, prevent overfitting, and achieve robust model convergence within the nlme framework:
+The function nlme() in the library(nlme)performs nonlinear regression on plasma concentration versus time to estimate the elimination rate constant (k_el), elimination half-life (t1/2), initial concentration (C0), apparent volume of distribution (Vd), and clearance (CL) to calculate the population-level averages (fixed effects) and individual-level deviations (random effects). 
+
+## 1-Compartment model
+Due to the sample size and data density limitations inherent to the Indometh dataset, a parsimonious modeling strategy was adopted. The structural model was restricted to minimal essential parameters to ensure numerical stability, prevent overfitting, and achieve robust model convergence within the nlme framework:
 
 First-order kinetic equation:
 
@@ -28,6 +31,8 @@ Also, the Pharmacokinetic parameters will be investigated:
 Figure 1. Image done by Gemini AI to explain the First-order kinetic equation and One-compartment model
 
 <img width="929" height="498" alt="Screenshot 2026-06-10 at 7 32 09 PM" src="https://github.com/user-attachments/assets/90bcde49-20b3-4c11-885b-e95f8dd62013" />
+
+## 2-Compartment model
 
 # Results
 
