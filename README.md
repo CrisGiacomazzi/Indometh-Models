@@ -120,7 +120,8 @@ Figure 2. Image done by Gemini AI to explain the system of linear differential e
 | **LogLik** | 26.82 | 56.86|
 | **Residuals** | 0.138 | 0.079 |
 
-Form model 2, fixed effects establish the baseline human baseline parameters: 
+Form model 2, fixed effects establish the baseline human baseline parameters. Random effects represent the average customer. 
+ 
 - Central Volume (V1 = 7.48L)
 - Peripheral Volume (V2 = 7.68L)
 - Clearance (CL = 9.16L/h), individual variation (StdDev) between patients is 2.28L/h.
