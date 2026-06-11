@@ -1,15 +1,15 @@
 # Indometh Models
 
-# Introduction
+## Introduction
 One-compartment model is the conceptual foundation of PK. It introduces the core parameters used to describe how a drug moves through the body. This model was developed for drugs that distribute into tissues almost instantly (relative to how slowly they are eliminated) (NLM, 2023). In this project, the Indometh dataset represents intravenous (IV) administration. After an IV bolus, where there is no absorption phase because the drug is given directly into the blood. This model can be used for companies to simulate scenarios to see how a drug will behave across diverse populations (Weiss, 2023).
 
-# Objective
+## Objective
 The objective of this project is to perform a comparative analysis of single-compartment and two-compartment pharmacokinetic models (Pinheiro, 2026). By evaluating key performance metrics, this study aims to determine the most mathematically robust and physiologically adequate model for Indometh.
 
-# Development
+## Development
 The function nlme() in the library(nlme)performs nonlinear regression on plasma concentration versus time to estimate the elimination rate constant (k_el), elimination half-life (t1/2), initial concentration (C0), apparent volume of distribution (Vd), and clearance (CL) to calculate the population-level averages (fixed effects) and individual-level deviations (random effects). 
 
-## 1-Compartment model
+### 1-Compartment model
 Due to the sample size and data density limitations inherent to the Indometh dataset, a parsimonious modeling strategy was adopted. The structural model was restricted to minimal essential parameters to ensure numerical stability, prevent overfitting, and achieve robust model convergence within the nlme framework:
 
 First-order kinetic equation:
@@ -32,7 +32,7 @@ Figure 1. Image done by Gemini AI to explain the First-order kinetic equation an
 
 <img width="929" height="498" alt="Screenshot 2026-06-10 at 7 32 09 PM" src="https://github.com/user-attachments/assets/90bcde49-20b3-4c11-885b-e95f8dd62013" />
 
-## 2-Compartment model
+### 2-Compartment model
 
 To build a custom two-compartment intravenous (IV) bolus model on the original linear scale, there are two primary mathematical approaches: the Macro-constant equations (geometric/exponential components) and the Micro-constant equations (direct transfer rates between compartments). The Micro-constant approach is highly preferred because the parameters translate directly to physical biological properties (Pinheiro & Bates, 2000).
 
@@ -120,6 +120,23 @@ Figure 2. Image done by Gemini AI to explain the system of linear differential e
 | **LogLik** | 26.82 | 56.86|
 | **Residuals** | 0.138 | 0.079 |
 
+Form model 2, fixed effects establish the baseline human baseline parameters: 
+- Central Volume (V1 = 7.48L)
+- Peripheral Volume (V2 = 7.68L)
+- Clearance (CL = 9.16L/h), individual variation (StdDev) between patients is 2.28L/h.
+- Intercompartmental Clearance (Q = 6.45L/h)
+- Correlation (0.628)
+- Residual Error = $0.079$
+
+The volumes can be used to map the initial dilution of the drug. As the volume results are similar, we can conclude that Indomethacin divides evenly between the bloodstream and body tissues at equilibrium - safely calculate starting doses for human clinical protocols. [Preclinical to Clinical Scaling]
+
+Because V1 is small, a rapid 25 mg IV bolus will cause an immediate concentration spike in the blood. However, because Q is higher (6.45 L/h), the drug moves very quickly out of the blood and into the tissues.
+This movement says that once the drug moves into the deeper tissues (where the therapeutic targets for inflammation or pain usually reside), it binds (connect) and lingers(stay) there, supporting extended dosing intervals.
+
+The clearance standard deviation means some patients clear the drug nearly 25% faster or slower than average. The correlation shows that patients with larger central volumes(V1) also tend to clear the drug faster (this is the exact justification needed to investigate body weight or kidney function as a covariate, which eventually dictates personalized dosing instructions on the final product label).
+Residual error low, permits use Monte Carlo simulation.
+
+
 Moving from a 1-compartment model (Model 1) to a 2-compartment model (Model 2) optimizes the statistical fit and biological accuracy.
 
 Decreased Akaike Information Criterion (AIC) and the Bayesian Information Criterion (BIC). Also, the log-likelihood (LogLik) increased.
@@ -127,6 +144,11 @@ Decreased Akaike Information Criterion (AIC) and the Bayesian Information Criter
 The residual variance dropped by nearly half, which means the distance between the model's predictions and the actual patient plasma concentrations has shrunk.
 
 Transitioning to a micro-constant 2-compartment approach successfully handles this structural complexity while yielding much more precise, physiologically accurate parameter estimates for clearance and volume.
+
+
+## Practical aplication
+
+- The optimization for V1 (Central Volume), V2 (Peripheral Volume), and Q (Intercompartmental Clearance) by this model permit accurately simulate human plasma concentration curves before the first dose is ever given to a human volunteer.
 
 
 # Source
