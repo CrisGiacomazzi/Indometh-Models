@@ -103,5 +103,21 @@ Figure 2. Image done by Gemini AI to explain the system of linear differential e
 <img width="992" height="521" alt="Screenshot 2026-06-10 at 7 36 07 PM" src="https://github.com/user-attachments/assets/41ccbc13-813b-4641-8566-23d3f5a55f2b" />
 
 
+# Source
+
+Manlapaz, P. A. C. (2026). pkpd.Release: Model fitting and simulation for drug release kinetics and PK/PD (Version 0.1.0) [Computer software]. In: One-Compartment IV Bolus Pharmacokinetic Model (Linear). R CRAN. https://cran.r-project.org/web/packages/pkpd.Release/pkpd.Release.pdf
+
+National Library of Medicine. (2023). Indomethacin. In StatPearls. NCBI Bookshelf. https://www.ncbi.nlm.nih.gov/books/NBK557744/
+
+Owen, J. S., & Fiedler-Kelly, J. (2014). Introduction to Population Pharmacokinetic/Pharmacodynamic Analysis with Nonlinear Mixed Effects Models. Chapter 11: Simulation Basis. John Wiley & Sons. https://onlinelibrary.wiley.com/doi/book/10.1002/9781118784860 
+
+Pinheiro J, Bates D, DebRoy S, Sarkar D, R Core Team.(2026). nlme: Linear and Nonlinear Mixed Effects Models. R package version 3.1. Available from: https://CRAN.R-project.org/package=nlme
+
+Rowland M, Tozer TN. Clinical Pharmacokinetics and Pharmacodynamics: Concepts and Applications. 4th ed. Philadelphia, PA: Lippincott Williams & Wilkins; 2011. (Chapter 8: Distribution Kinetics). https://downloads.lww.com/wolterskluwer_vitalstream_com/sample-content/9780781750097_rowland/samples/frontmatter.pdf 
+
+Weiss M. (2023). Is the One-Compartment Model with First Order Absorption a Useful Approximation?. Pharmaceutical research, 40(9), 2147–2153. https://doi.org/10.1007/s11095-023-03582-1 
+
+
+
 
 
