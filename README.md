@@ -62,6 +62,17 @@ $$
 \end{aligned}
 $$
 
+Using the quadratic formula, the literal algebraic values for alpha and beta are extracted:
+
+$$
+\begin{aligned}
+\alpha &= \frac{(k_{10} + k_{12} + k_{21}) + \sqrt{(k_{10} + k_{12} + k_{21})^2 - 4 \cdot k_{10} \cdot k_{21}}}{2} \\
+\beta &= \frac{(k_{10} + k_{12} + k_{21}) - \sqrt{(k_{10} + k_{12} + k_{21})^2 - 4 \cdot k_{10} \cdot k_{21}}}{2}
+\end{aligned}
+$$
+
+
+
 # Results
 
 ## Model 1 (1-Compartment) 
