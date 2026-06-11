@@ -134,8 +134,9 @@ The volumes can be used to map the initial dilution of the drug. As the volume r
 Because V1 is small, a rapid 25 mg IV bolus will cause an immediate concentration spike in the blood. However, because Q is higher (6.45 L/h), the drug moves very quickly out of the blood and into the tissues.
 This movement says that once the drug moves into the deeper tissues (where the therapeutic targets for inflammation or pain usually reside), it binds (connect) and lingers(stay) there, supporting extended dosing intervals.
 
-The clearance standard deviation means some patients clear the drug nearly 25% faster or slower than average. The correlation shows that patients with larger central volumes(V1) also tend to clear the drug faster (this is the exact justification needed to investigate body weight or kidney function as a covariate, which eventually dictates personalized dosing instructions on the final product label).
+The clearance standard deviation means some patients clear the drug nearly 25%* faster or slower than average. The correlation shows that patients with larger central volumes(V1) also tend to clear the drug faster (this is the exact justification needed to investigate body weight or kidney function as a covariate, which eventually dictates personalized dosing instructions on the final product label).
 Residual error low, permits use Monte Carlo simulation.
+*((Random effect SD / Fixed effect CL) *100)
 
 
 Moving from a 1-compartment model (Model 1) to a 2-compartment model (Model 2) optimizes the statistical fit and biological accuracy.
