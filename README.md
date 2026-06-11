@@ -111,6 +111,14 @@ Figure 2. Image done by Gemini AI to explain the system of linear differential e
 | **LogLik** | 26.82 | 56.86|
 | **Residuals** | 0.138 | 0.079 |
 
+Moving from a 1-compartment model (Model 1) to a 2-compartment model (Model 2) optimizes the statistical fit and biological accuracy.
+
+Decreased Akaike Information Criterion (AIC) and the Bayesian Information Criterion (BIC). Also, the log-likelihood (LogLik) increased.
+
+The residual variance dropped by nearly half, which means the distance between the model's predictions and the actual patient plasma concentrations has shrunk.
+
+Transitioning to a micro-constant 2-compartment approach successfully handles this structural complexity while yielding much more precise, physiologically accurate parameter estimates for clearance and volume.
+
 
 # Source
 
