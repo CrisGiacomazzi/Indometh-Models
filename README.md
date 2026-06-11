@@ -103,6 +103,15 @@ Figure 2. Image done by Gemini AI to explain the system of linear differential e
 <img width="992" height="521" alt="Screenshot 2026-06-10 at 7 36 07 PM" src="https://github.com/user-attachments/assets/41ccbc13-813b-4641-8566-23d3f5a55f2b" />
 
 
+### Metrics
+| Metric | Model 1 (1-Compartment) | Model 2 (2-Compartment) |
+| :--- | :---: | :---: |
+| **AIC** | -41.65 | -97.733 |
+| **BIC** | -28.51 | -80.21 |
+| **LogLik** | 26.82 | 56.86|
+| **Residuals** | 0.138 | 0.079 |
+
+
 # Source
 
 Manlapaz, P. A. C. (2026). pkpd.Release: Model fitting and simulation for drug release kinetics and PK/PD (Version 0.1.0) [Computer software]. In: One-Compartment IV Bolus Pharmacokinetic Model (Linear). R CRAN. https://cran.r-project.org/web/packages/pkpd.Release/pkpd.Release.pdf
