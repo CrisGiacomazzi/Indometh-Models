@@ -71,6 +71,18 @@ $$
 \end{aligned}
 $$
 
+**Step 3 - The Structural Concentration Equation**
+Once you find alpha and beta, the final concentration in the central compartment, C(t), back to the initial dose (D) and the central volume (V1):
+
+$$
+C(t) = \frac{D}{V_1 \cdot (\alpha - \beta)} \cdot \left[ (\alpha - k_{21}) \cdot e^{-\alpha \cdot t} + (k_{21} - \beta) \cdot e^{-\beta \cdot t} \right]
+$$
+
+The final equation translates the population's biological parameters (Dose and Central Volume) into a time-dependent curve, accurately predicting the real-world plasma concentration at any given post-dose interval.
+
+Figure 2. Image done by Gemini AI to explain the system of linear differential equations and Two-compartment model
+
+<img width="932" height="504" alt="Screenshot 2026-06-11 at 10 57 45 AM" src="https://github.com/user-attachments/assets/28dc76a9-f7fc-4efc-ac2d-dc9562c37a64" />
 
 
 # Results
