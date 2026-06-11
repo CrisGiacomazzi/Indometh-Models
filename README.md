@@ -107,6 +107,8 @@ Figure 2. Image done by Gemini AI to explain the system of linear differential e
 **Plot 1-Compartment model**
 <img width="992" height="521" alt="Screenshot 2026-06-10 at 7 36 07 PM" src="https://github.com/user-attachments/assets/41ccbc13-813b-4641-8566-23d3f5a55f2b" />
 
+**Plot 2-Compartment model**
+
 
 ### Metrics
 | Metric | Model 1 (1-Compartment) | Model 2 (2-Compartment) |
