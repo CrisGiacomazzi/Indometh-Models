@@ -42,7 +42,8 @@ In a two-compartment model, the body is divided into:
 
 The micro-constant approach is a system of linear differential equations that maps the physical movement of the drug between the central and peripheral spaces, and the calculations down into a step-by-step matrix sequence (Pinheiro & Bates, 2000).
 The micro-constant equation defines drug disposition using clearance and volumes directly. The concentration in the central compartment over time is expressed as a bi-exponential decline:
-Step 1 - The Fundamental Rate Matrix (K) 
+
+**Step 1 - The Fundamental Rate Matrix (K) **
 It describes the fractional distribution of the drug mass over time. Find the constants:
 
 $k_{10} = \frac{CL}{V_1}$, $k_{12} = \frac{Q}{V_1}$, and $k_{21} = \frac{Q}{V_2}$.
@@ -51,7 +52,15 @@ $k_{10} = \frac{CL}{V_1}$, $k_{12} = \frac{Q}{V_1}$, and $k_{21} = \frac{Q}{V_2}
 - k12 is the transfer rate constant from the central to the peripheral compartment.
 - k21 is the transfer rate constant from the peripheral back to the central compartment.
 
+**Step 2 - Solving for the Hybrid Exponents (alpha and beta)**
+To find the the steepness of the curves (inclination), the algebraic solution resolves the quadratic characteristic equation of the rate matrix:
 
+$$
+\begin{aligned}
+\alpha + \beta &= k_{10} + k_{12} + k_{21} \\
+\alpha \cdot \beta &= k_{10} \cdot k_{21}
+\end{aligned}
+$$
 
 # Results
 
