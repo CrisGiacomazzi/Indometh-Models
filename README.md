@@ -34,6 +34,25 @@ Figure 1. Image done by Gemini AI to explain the First-order kinetic equation an
 
 ## 2-Compartment model
 
+To build a custom two-compartment intravenous (IV) bolus model on the original linear scale, there are two primary mathematical approaches: the Macro-constant equations (geometric/exponential components) and the Micro-constant equations (direct transfer rates between compartments). The Micro-constant approach is highly preferred because the parameters translate directly to physical biological properties (Pinheiro & Bates, 2000).
+
+In a two-compartment model, the body is divided into:
+- The Central Compartment (V1): Highly perfused tissues (blood, organs) where the drug is injected and eliminated.
+- The Peripheral Compartment (V2): Deeper tissues where the drug distributes back and forth.
+
+The micro-constant approach is a system of linear differential equations that maps the physical movement of the drug between the central and peripheral spaces, and the calculations down into a step-by-step matrix sequence (Pinheiro & Bates, 2000).
+The micro-constant equation defines drug disposition using clearance and volumes directly. The concentration in the central compartment over time is expressed as a bi-exponential decline:
+Step 1 - The Fundamental Rate Matrix (K) 
+It describes the fractional distribution of the drug mass over time. Find the constants:
+
+$k_{10} = \frac{CL}{V_1}$, $k_{12} = \frac{Q}{V_1}$, and $k_{21} = \frac{Q}{V_2}$.
+
+- k10 is the elimination rate constant from the central compartment.
+- k12 is the transfer rate constant from the central to the peripheral compartment.
+- k21 is the transfer rate constant from the peripheral back to the central compartment.
+
+
+
 # Results
 
 ## Model 1 (1-Compartment) 
