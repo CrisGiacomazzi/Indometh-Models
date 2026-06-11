@@ -87,17 +87,22 @@ Figure 2. Image done by Gemini AI to explain the system of linear differential e
 
 # Results
 
-## Model 1 (1-Compartment) 
+## Model 1 (1-Compartment) plot
 
 <img width="966" height="464" alt="Screenshot 2026-06-10 at 7 33 27 PM" src="https://github.com/user-attachments/assets/a55e0fbf-dd18-41e8-95c6-b7cc87a6f614" />
+
+## Model 2 (2-Compartment) plot
+
+<img width="1200" height="564" alt="Screenshot 2026-06-11 at 11 35 43 AM" src="https://github.com/user-attachments/assets/c119fd59-ab22-442b-a2e5-7a0ca5cad96f" />
+
 
 ### How much does my model predict correctly?
 | Accuracy Tier | Model 1 (1-Compartment) | Model 2 (2-Compartment) |
 | :--- | :---: | :---: |
-| **Highly Accurate (<10% error)** | 18 (27.27%) | |
-| **Acceptable (10-20% error)** | 9 (13.64%) | |
-| **Marginal (20-30% error)** | 1 (1.52%) | |
-| **Inaccurate (>30% error)** | 38 (57.58%) | |
+| **Highly Accurate (<10% error)** | 18 (27.27%) | 31 (46.97%)|
+| **Acceptable (10-20% error)** | 9 (13.64%) | 11(16.67%) |
+| **Marginal (20-30% error)** | 1 (1.52%) | 5(7.58%) |
+| **Inaccurate (>30% error)** | 38 (57.58%) | 19(28.79%) |
 
 **Plot 1-Compartment model**
 <img width="992" height="521" alt="Screenshot 2026-06-10 at 7 36 07 PM" src="https://github.com/user-attachments/assets/41ccbc13-813b-4641-8566-23d3f5a55f2b" />
