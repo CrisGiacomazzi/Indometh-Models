@@ -10,7 +10,7 @@ The objective of this project is to perform a comparative analysis of single-com
 The function nlme() in the library(nlme)performs nonlinear regression on plasma concentration versus time to estimate the elimination rate constant (k_el), elimination half-life (t1/2), initial concentration (C0), apparent volume of distribution (Vd), and clearance (CL) to calculate the population-level averages (fixed effects) and individual-level deviations (random effects). 
 
 ### 1-Compartment model
-Due to the sample size and data density limitations inherent to the Indometh dataset, a parsimonious modeling strategy was adopted. The structural model was restricted to minimal essential parameters to ensure numerical stability, prevent overfitting, and achieve robust model convergence within the nlme framework:
+Due to the sample size and data density limitations inherent to the Indometh dataset, a parsimonious modeling strategy was adopted. The result will be always an _descendent exponential curve_. The structural model was restricted to minimal essential parameters to ensure numerical stability, prevent overfitting, and achieve robust model convergence within the nlme framework:
 
 First-order kinetic equation (here assuming just drug elimination):
 
