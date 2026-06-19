@@ -12,7 +12,7 @@ The function nlme() in the library(nlme)performs nonlinear regression on plasma 
 ### 1-Compartment model
 Due to the sample size and data density limitations inherent to the Indometh dataset, a parsimonious modeling strategy was adopted. The structural model was restricted to minimal essential parameters to ensure numerical stability, prevent overfitting, and achieve robust model convergence within the nlme framework:
 
-First-order kinetic equation:
+First-order kinetic equation (here assuming just drug elimination):
 
 $C(t) = C_0 \cdot e^{-k_{el} \cdot t}$.
 
