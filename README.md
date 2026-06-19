@@ -20,7 +20,7 @@ Parameters:
 
 - C(t): plasma concentration at time “t”.
 - C0: is the initial concentration.
-- -kel: is the elimination rate constant. Negative.
+- -kel: is the elimination rate constant. Negative because the drug is removed from the body per unit of time ($hr^{-1}$).
 
 Also, the Pharmacokinetic parameters will be investigated:
 
