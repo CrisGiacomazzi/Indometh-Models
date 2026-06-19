@@ -20,7 +20,7 @@ Parameters:
 
 - C(t): plasma concentration at time “t”.
 - C0: is the initial concentration.
-- k_el: is the elimination rate constant. Negative.
+- -kel: is the elimination rate constant. Negative.
 
 Also, the Pharmacokinetic parameters will be investigated:
 
